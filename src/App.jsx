@@ -12,7 +12,7 @@ import ProjectModal from './components/ProjectModal.jsx';
 import {
   initialProjects,
   initialTimeline
-} from './data/portfolioData';
+} from './/Data/portfolioData.js'
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,8 +21,7 @@ function App() {
 
   const [projects, setProjects] = useState(initialProjects);
 
-  const [timeline, setTimeline] = useState(initialTimeline);
-
+  const timeline = initialTimeline
   /*
     Prevent the page from scrolling while
     the menu or project modal is open.
@@ -44,42 +43,11 @@ function App() {
   const scrollTo = (id) => {
     setMenuOpen(false);
 
-    document
-      .getElementById(id)
-      ?.scrollIntoView({
-        behavior: 'smooth'
+    document.getElementById(id)?.scrollIntoView({behavior: 'smooth'
       });
   };
 
-  /*
-    Update an existing project.
-  */
-  const updateProject = (updatedProject) => {
-    setProjects((currentProjects) =>
-      currentProjects.map((project) =>
-        project.id === updatedProject.id
-          ? updatedProject
-          : project
-      )
-    );
-
-    setSelectedProject(updatedProject);
-  };
-
-  /*
-    Add a new experience to the timeline.
-  */
-  const addTimelineItem = () => {
-    setTimeline((currentTimeline) => [
-      ...currentTimeline,
-
-      {
-        year: '2026 — Future',
-        title: 'New Experience',
-        text: 'Add a concise description of this role, project, accomplishment, or milestone here.'
-      }
-    ]);
-  };
+ 
 
   return (
     <div className="site-shell">
@@ -100,23 +68,19 @@ function App() {
         />
 
         <Experience
-          timeline={timeline}
-          onAddExperience={addTimelineItem}
-        />
+          timeline={timeline}/>
 
         <About />
 
       </main>
 
       <Footer
-        scrollTo={scrollTo}
-      />
-
+        scrollTo={scrollTo}/>
+      
       {selectedProject && (
         <ProjectModal
           project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-          onSave={updateProject}
+          onClose={() => setSelectedProject(null)} 
         />
       )}
 

@@ -6,33 +6,11 @@ import {
   X
 } from 'lucide-react';
 
-import {
-  placeholderImages
-} from '../data/portfolioData';
 
 function ProjectModal({
   project,
-  onClose,
-  onSave
+  onClose
 }) {
-
-  const [draft, setDraft] =
-    useState(project);
-
-
-  /*
-    Update a single field.
-  */
-
-  const updateField = (key, value) => {
-
-    setDraft((currentDraft) => ({
-      ...currentDraft,
-      [key]: value
-    }));
-
-  };
-
 
   return (
     <div
@@ -56,155 +34,56 @@ function ProjectModal({
         aria-labelledby="modal-title"
       >
 
-        {/* MODAL HEADER */}
+        {/* HEADER */}
 
         <div className="modal-head">
 
           <div>
 
-            <p className="eyebrow">
-              EDIT PROJECT
+            <p className="modal-eyebrow">
+              {project.category}
             </p>
 
             <h2 id="modal-title">
-              Project details
+              {project.title}
             </h2>
 
           </div>
-
-
           <button
-            className="close-button"
-            onClick={onClose}
-            aria-label="Close"
-          >
+            className="close-button" 
+            onClick={onClose} 
+            aria-label="Close">
             <X />
           </button>
-
         </div>
 
 
-        {/* FORM */}
+        {/* Body */}
 
         <div className="modal-body">
-
-          <label>
-            Project title
-
-            <input
-              value={draft.title}
-              onChange={(event) =>
-                updateField(
-                  'title',
-                  event.target.value
-                )
-              }
-            />
-          </label>
-
-
-          <label>
-            Category
-
-            <input
-              value={draft.category}
-              onChange={(event) =>
-                updateField(
-                  'category',
-                  event.target.value
-                )
-              }
-            />
-          </label>
-
-
-          <label>
-            Image URL
-
-            <input
-              value={draft.image}
-              onChange={(event) =>
-                updateField(
-                  'image',
-                  event.target.value
-                )
-              }
-            />
-          </label>
-
-
-          <label>
-            Description
-
-            <textarea
-              rows="6"
-              value={draft.description}
-              onChange={(event) =>
-                updateField(
-                  'description',
-                  event.target.value
-                )
-              }
-            />
-          </label>
-
-
-          <label>
-            Project link
-
-            <input
-              value={draft.link}
-              onChange={(event) =>
-                updateField(
-                  'link',
-                  event.target.value
-                )
-              }
-            />
-          </label>
-
-
-          {/* IMAGE PREVIEW */}
-
-          <div className="modal-preview">
-
-            <img
-              src={draft.image}
-              alt="Project preview"
-              onError={(event) => {
-                event.currentTarget.src =
-                  placeholderImages[0];
-              }}
-            />
-
+            <div className='rep'>
+              <p>
+                {project.description}
+              </p>
+                <img className='image1'
+                    src={project.featureImage}    
+                />
+            </div>
+        
+            <div className="rep">
+              <img className='image1'
+                  src={project.featureImage2}    
+              />
+                <p>
+                {project.description2}
+                </p>
+              </div>
+              <div className="pdf-container">
+                <embed src={project.pdf}  data-alt="PDF" type="application/pdf" className="pdf-viewer" />
+               
+              </div>
           </div>
-
-        </div>
-
-
-        {/* ACTIONS */}
-
-        <div className="modal-actions">
-
-          <button
-            className="secondary-button"
-            onClick={onClose}
-          >
-            Cancel
-          </button>
-
-          <button
-            className="primary-button"
-            onClick={() => onSave(draft)}
-          >
-            Save changes
-            <ArrowRight size={17} />
-          </button>
-
-        </div>
-
       </div>
-
     </div>
   );
 }

@@ -2,7 +2,9 @@
 import React from 'react';
 
 import {
-  ArrowRight
+  ArrowRight,
+  ArrowUp01,
+  ArrowUpCircle
 } from 'lucide-react';
 
 function ProjectCard({
@@ -21,7 +23,6 @@ function ProjectCard({
     }
 
   };
-
 
   return (
     <article
@@ -56,7 +57,7 @@ function ProjectCard({
 
         </div>
 
-        <ArrowRight size={24} />
+        <ArrowUpCircle size={24} />
 
       </div>
 

@@ -3,12 +3,12 @@ import React from 'react';
 
 import {
   placeholderImages
-} from '../data/portfolioData';
+} from '/src/Data/portfolioData.js'
 
 function About() {
 
   const galleryImages =
-    placeholderImages.slice(2, 6);
+    placeholderImages.slice(6, 8);
 
 
   return (
@@ -16,57 +16,47 @@ function About() {
       id="about"
       className="section about-section"
     >
+        
+          {/* SECTION INTRO */}
 
-      {/* SECTION INTRO */}
+      <div className='new'>
 
-      <p className="eyebrow">
-        A LITTLE MORE
-      </p>
-
-      <h2>
-        Designing with clarity,
-        curiosity, and intent.
-      </h2>
+          <h2>
+            A Little Bit More About Me
+          </h2>
 
 
-      {/* ABOUT TEXT */}
+          {/* ABOUT TEXT */}
 
-      <p className="about-copy">
-        My work starts with understanding people
-        and ends with making complex ideas feel
-        simple. I enjoy moving between research,
-        systems thinking, visual craft, and
-        front-end implementation to create work
-        that is both useful and memorable.
-      </p>
+          <p className="about-copy">
+            I grew up on the beach in Wilmington, NC and have always enjoyed the beach and the outdoors. I love being in the ocean, surfing and playing almost every sport.
+          </p>
 
 
-      {/* IMAGE GALLERY */}
+          {/* IMAGE GALLERY */}
 
-      <div className="gallery">
+          <div className="gallery">
 
-        {galleryImages.map((image, index) => (
+            {galleryImages.map((image, index) => (
 
-          <div
-            className="gallery-item"
-            key={image}
-          >
+              <div
+                className="gallery-item"
+                key={image}
+              >
 
-            <img
-              src={image}
-              alt={`Gallery placeholder ${index + 1}`}
-            />
+                <img
+                  src={image}
+                  alt={`Gallery placeholder ${index + 1}`}
+                />
 
-            <span>
-              0{index + 1}
-            </span>
+                
+              </div>
+
+            ))}
 
           </div>
-
-        ))}
-
-      </div>
-
+        </div>
+        
     </section>
   );
 }

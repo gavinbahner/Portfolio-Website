@@ -17,12 +17,6 @@ function Projects({
   const [projectOffset, setProjectOffset] =
     useState(0);
 
-  const totalPositions = Math.ceil(
-    (projects.length - projectsPerPage) / projectsPerMove
-  ) + 1;
-  const currentPosition = Math.floor(
-    projectOffset / projectsPerMove
-  ) + 1;
   /*
     Get the four projects currently visible.
   */
@@ -63,10 +57,8 @@ function Projects({
 
         <div>
 
-          
-
           <h2>
-            Project work
+            Project Work
           </h2>
 
         </div>
@@ -80,11 +72,11 @@ function Projects({
         >
 
           <span className="project-counter"> 
-            {String(projectOffset)} 
-            {' / '} {String((projects.length)/2)} 
+            {String(projectOffset / 4 +1)} 
+            {' / '} {String((projects.length)/4 )} 
           </span>
           <button
-            onClick={() => shiftProjects(-2)}
+            onClick={() => shiftProjects(-4)}
             aria-label="Show previous projects"
             className='left'
           >
@@ -92,7 +84,7 @@ function Projects({
           </button>
 
           <button
-            onClick={() => shiftProjects(2)}
+            onClick={() => shiftProjects(4)}
             aria-label="Show next projects"
           >
             <ChevronRight size={20} />

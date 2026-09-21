@@ -1,10 +1,6 @@
 
 import React from 'react';
 
-import {
-  placeholderImages
-} from '../data/portfolioData';
-
 function Hero() {
 
   return (
@@ -68,7 +64,7 @@ function Hero() {
       <div className="hero-image-wrap">
 
         <img
-          src='./src/Data/Images/waterfall.jpeg'
+          src='./src/Data/Images/port.png'
           alt="Iceland?"
         />
 

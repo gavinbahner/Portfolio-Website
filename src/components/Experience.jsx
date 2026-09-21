@@ -2,8 +2,7 @@
 import React from 'react';
 
 function Experience({
-  timeline,
-  onAddExperience
+  timeline
 }) {
 
   return (
@@ -19,22 +18,17 @@ function Experience({
         <div>
 
           <p className="eyebrow">
-            THE PATH SO FAR
+            
           </p>
 
           <h2>
-            My experiences
+            My Experiences
           </h2>
 
         </div>
 
 
-        <button
-          className="text-button"
-          onClick={onAddExperience}
-        >
-          + Add experience
-        </button>
+        
 
       </div>
 
